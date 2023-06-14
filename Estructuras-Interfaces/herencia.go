@@ -39,6 +39,16 @@ func main() {
 
 	//fmt.Println(p2)
 
+	EMPLEADO2 := Empleado{
+		sueldo: 5000,
+	}
+
+	EMPLEADO2.nombre = "Juan"
+	EMPLEADO2.edad = 80
+
+	EMPLEADO2.imprimir()
+	fmt.Println(EMPLEADO2)
+
 	empleado1 := Empleado{
 		sueldo: 500,
 	}
