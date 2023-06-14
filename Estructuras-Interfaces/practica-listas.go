@@ -2,6 +2,18 @@ package main
 
 import "fmt"
 
+type TaskList struct {
+	tasks []*Task
+}
+
+func (tl *TaskList) appendTask(t *Task) {
+	tl.tasks = append(tl.tasks, t)
+}
+
+func (tl *TaskList) removeTask(index int) {
+	tl.tasks = append(tl.tasks[:index], tl.tasks[index+1:]...)
+}
+
 type Task struct {
 	name        string
 	descripcion string
@@ -30,6 +42,27 @@ func main() {
 		complete:    false,
 	}
 
-	t1.toPrint()
-	t2.toPrint()
+	lista := TaskList{}
+	lista.appendTask(&t1)
+	lista.appendTask(&t2)
+
+	fmt.Println(lista)
+
+	t3 := Task{
+		name:        "Info3",
+		descripcion: "Este es un elemento del item",
+		complete:    false,
+	}
+
+	lista.appendTask(&t3)
+	fmt.Println(lista)
+
+	lista.removeTask(1)
+
+	for i, task := range lista.tasks {
+		fmt.Println(i, task.name)
+	}
+
+	//t1.toPrint()
+	//t2.toPrint()
 }
