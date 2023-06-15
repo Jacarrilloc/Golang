@@ -1,7 +1,11 @@
 # Golang
 Manejo de Goland con ejemplos
 
--Para ejecutar es: 
+-Para poder ejecutar es cualquiera de los archivos de este repositorio debe hacerse de la siguiente manera
+```
+cd dirFolder
+```
+
 ```
 go run docFileExample.go 
 ```
