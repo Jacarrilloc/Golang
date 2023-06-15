@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Calcular interface {
 	area() float64
 	perimetro()
@@ -10,13 +12,16 @@ type Circulo struct {
 }
 
 type Cuadrado struct {
-	ancho int
-	alto  int
+	lado int
 }
 
-func (*Cuadrado) area() float64 {
-	resultado := cuadrado.alto * cuadrado.ancho
-	return float64(resultado)
+func (cuadrado *Cuadrado) area() float64 {
+	return float64(cuadrado.lado * cuadrado.lado)
+}
+
+func medidas(g Calcular) {
+	fmt.Println(g)
+	fmt.Println(g.area())
 }
 
 func main() {
@@ -26,6 +31,5 @@ func main() {
 		alto:  9,
 	}
 
-	resultado := area(&cuadrado)
-
+	medidas(&cuadrado)
 }
