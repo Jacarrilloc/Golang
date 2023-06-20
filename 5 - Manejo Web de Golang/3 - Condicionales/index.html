@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UFT-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index</title>
+    </head>
+
+    <body>
+        <h1>Usuarios</h1>
+        <h3>Hola {{ .UserName }}</h3>
+        <p>Edad : {{ .Edad }}</p>
+
+
+        <!--If con else-->
+
+        {{ if .Activo }}
+            <p>Usuario Activo</p>
+        {{else}}
+            <p>El Usuario no está activo</p>
+        {{ end }}
+
+        <!--If && (and)-->
+
+        {{ if (and .Activo .Admin)}}
+            <p>Eres Admin</p>
+        {{ end }}
+
+
+        <!--If con mayor(gt) o menor (lt)-->
+
+        {{if gt .Edad 22}} 
+            <p>El Usuario tiene mas de 22 años</p>
+        {{end}}
+
+        {{if lt .Edad 22}} 
+            <p>El Usuario tiene menos de 22 años</p>
+        {{end}}
+
+    </body>
+</html>
