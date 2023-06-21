@@ -16,7 +16,7 @@ func Saludar(nombre string) string {
 	return "Hola " + nombre + " desde una funcion"
 }
 
-var templates = template.Must(template.New("T").ParseFiles("index.html", "base.html"))
+var templates = template.Must(template.New("T").ParseGlob("templates/**/*.html"))
 
 // Handler
 func Index(rw http.ResponseWriter, r *http.Request) {
@@ -33,10 +33,19 @@ func Index(rw http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func Registro(rw http.ResponseWriter, r *http.Request) {
+	error := templates.ExecuteTemplate(rw, "registro.html", nil)
+
+	if error != nil {
+		panic(error)
+	}
+}
+
 func main() {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", Index)
+	mux.HandleFunc("/registro", Registro)
 
 	server := &http.Server{
 		Addr:    "localhost:3000",
