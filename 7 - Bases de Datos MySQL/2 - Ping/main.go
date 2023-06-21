@@ -1,16 +1,9 @@
 package main
 
-import (
-	"gomysql/db"
-	"gomysql/models"
-)
+import "gomysql/db"
 
 func main() {
 	db.Connect()
-
-	db.CreateTable(models.UserSchema)
-
-	//db.Ping()
-
+	db.Ping()
 	db.Close()
 }
